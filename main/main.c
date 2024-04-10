@@ -24,9 +24,8 @@ void x_task(void *p) {
     adc_init();
     adc_gpio_init(27);
     
-    uint16_t data;
+    uint8_t data;
     adc_t str;
-    int x;
     int A[6] = {0};
     while (1) {
         adc_select_input(1);
@@ -50,9 +49,8 @@ void y_task(void *p) {
     adc_init();
     adc_gpio_init(26);
     
-    uint16_t data;
+    uint8_t data;
     adc_t str;
-    int y;
     int A[6] = {0};
     while (1) {
         adc_select_input(0);
