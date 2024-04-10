@@ -22,14 +22,14 @@ typedef struct adc {
 
 void x_task(void *p) {
     adc_init();
-    adc_gpio_init(26);
+    adc_gpio_init(27);
     
     uint16_t data;
     adc_t str;
     int x;
     int A[6] = {0};
     while (1) {
-        adc_select_input(0);
+        adc_select_input(1);
         data = adc_read();
 
         A[0]=A[1];
@@ -49,14 +49,14 @@ void x_task(void *p) {
 
 void y_task(void *p) {
     adc_init();
-    adc_gpio_init(27);
+    adc_gpio_init(26);
     
     uint16_t data;
     adc_t str;
     int y;
     int A[6] = {0};
     while (1) {
-        adc_select_input(1);
+        adc_select_input(0);
         data = adc_read();
 
         A[0]=A[1];
