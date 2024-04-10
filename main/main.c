@@ -40,8 +40,8 @@ void x_task(void *p) {
         x=(A[0]+A[1]+A[2]+A[3]+A[4])/5;
 
         str.axis=0;
-        str.val=(x - 2047)/8;
-        if (abs(str.val)<=30) str.val=0;
+        str.val=(x - 2047)/10;
+        if (abs(str.val)<=150) str.val=0;
         xQueueSend(xQueueAdc, &str, 1);
         vTaskDelay(pdMS_TO_TICKS(100));
     }
@@ -67,8 +67,8 @@ void y_task(void *p) {
         y=(A[0]+A[1]+A[2]+A[3]+A[4])/5;
 
         str.axis=1;
-        str.val=(y - 2047)/8;
-        if (abs(str.val)<=30) str.val=0;
+        str.val=(y - 2047)/10;
+        if (abs(str.val)<=150) str.val=0;
         xQueueSend(xQueueAdc, &str, 1);
         vTaskDelay(pdMS_TO_TICKS(100));
     }
