@@ -24,18 +24,16 @@ void x_task(void *p) {
     adc_init();
     adc_gpio_init(27);
     
-    uint8_t data;
     adc_t str;
     int A[6] = {0};
     while (1) {
         adc_select_input(1);
-        data = adc_read();
 
         A[0]=A[1];
         A[1]=A[2];
         A[2]=A[3];
         A[3]=A[4];
-        A[4]=data;
+        A[4]=adc_read();
 
         str.axis=0;
         str.val=(((A[0]+A[1]+A[2]+A[3]+A[4])/5) - 2047)/10;
@@ -49,18 +47,16 @@ void y_task(void *p) {
     adc_init();
     adc_gpio_init(26);
     
-    uint8_t data;
     adc_t str;
     int A[6] = {0};
     while (1) {
         adc_select_input(0);
-        data = adc_read();
 
         A[0]=A[1];
         A[1]=A[2];
         A[2]=A[3];
         A[3]=A[4];
-        A[4]=data;
+        A[4]=adc_read();
 
         str.axis=1;
         str.val=(((A[0]+A[1]+A[2]+A[3]+A[4])/5) - 2047)/10;
